@@ -9,6 +9,7 @@ vim.opt.compatible = false
 vim.opt.fixendofline = false
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.relativenumber = true
 vim.opt.ignorecase = true -- case insensitive searching
 vim.opt.smartcase = true -- case-sensitive if expresson contains a capital letter

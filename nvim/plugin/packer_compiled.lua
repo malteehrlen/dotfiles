@@ -119,6 +119,16 @@ _G.packer_plugins = {
     path = "/home/malte/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/home/malte/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/home/malte/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   nerdtree = {
     loaded = true,
     path = "/home/malte/.local/share/nvim/site/pack/packer/start/nerdtree",
@@ -133,11 +143,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/malte/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "/home/malte/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -188,6 +193,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/malte/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/malte/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,
