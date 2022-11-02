@@ -419,4 +419,4 @@ mode "$mode_gaps_outer" {
 }
 
 # startup script
-exec_always --no-startup-id /home/malte/.i3/startup.sh
+exec_always --no-startup-id /home/malte./config/i3/startup.sh
