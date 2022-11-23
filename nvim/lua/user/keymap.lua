@@ -20,8 +20,10 @@ function M.setAllKeymaps()
         M.map("n", "<C-o>", ":Rg<Cr>")
         _G.rgVisual = require('user.rgVisual').ripgrepVisual
         M.map("v", "<C-o>",":lua rgVisual()<CR>", { silent = true })
-        M.map("n", "<leader>m", ":NERDTreeFocus<CR>")
         M.map("n", "<leader>K", ":sp<CR>:execute('resize ' . line('$'))<CR><C-w>j")
+        -- NERDTree
+        M.map("n", "<leader>m", ":NERDTreeFocus<CR>")
+        M.map("n", "<leader>n", ":NERDTreeFind<CR>")
 end
 
 return M
