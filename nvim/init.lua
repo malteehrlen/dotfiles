@@ -54,3 +54,5 @@ vim.opt.shortmess:append('c')
 -- Always show the signcolumn, otherwise it would shift the text each time
 -- diagnostics appear/become resolved.
 vim.opt.signcolumn = 'yes'
+
+vim.opt.undofile = true
