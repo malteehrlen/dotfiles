@@ -1,4 +1,4 @@
-Xft.dpi:       192
+Xft.dpi:       94
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
@@ -78,7 +78,7 @@ URxvt.font: xft:Iosevka Term:style=bold:size=16
 URxvt.boldFont: xft:Iosevka Term:style=heavy:size=16
 URxvt.italicFont: xft:Iosevka Term:style=bold italic:size=16
 URxvt.boldItalicFont: xft:Iosevka Term:style=heavy italic:size=16
-URxvt*letterSpace: 0
+URxvt*letterSpace: -1
 
 ! alternative font settings with 'terminus':
 ! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1

@@ -48,3 +48,10 @@ viewnior
 volumeicon
 xarchiver
 xfce4
+.gsd-keyboard.settings-ported
+evolution/*
+gnome-initial-setup-done
+google-chrome/*
+ibus/*
+neofetch/*
+htop/*
