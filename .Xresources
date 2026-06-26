@@ -1,4 +1,4 @@
-Xft.dpi:       94
+Xft.dpi:       96
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
@@ -114,12 +114,13 @@ URxvt.keysym.Control-Down:        \033[1;5B
 URxvt.keysym.Shift-Control-Down:  \033[1;6B
 !
 
+URxvt.perl-lib: /home/malte.ehrlen/.urxvt/ext
 URxvt.perl-ext-common: default,matcher,resize-font
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
-URxvt.keysym.Control-minus:     resize-font:smaller
-URxvt.keysym.Control-plus:      resize-font:bigger
+URxvt.keysym.Control-minus:     resize-font:decrease
+URxvt.keysym.Control-plus:      resize-font:increase
 URxvt.keysym.C-equal:     resize-font:reset
 URxvt.keysym.C-question:  resize-font:show
 ! Rxvt.perl-ext-common:             ...,clipboard

@@ -419,3 +419,5 @@ mode "$mode_gaps_outer" {
 
 # startup script
 # exec_always --no-startup-id /home/malte./config/i3/startup.sh
+exec --no-startup-id setxkbmap de
+exec --no-startup-id unset XDG_SESSION_TYPE

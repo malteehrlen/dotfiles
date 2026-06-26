@@ -3,7 +3,6 @@ require('user.cursorLine')
 require('user.keymap').setAllKeymaps()
 require('user.nvim-cmp-config')
 require('user.lsp')
-require('user.treesitter')
 
 vim.opt.compatible = false
 vim.opt.fixendofline = false
