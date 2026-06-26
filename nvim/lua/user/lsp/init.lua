@@ -1,4 +1,4 @@
-local lspconfig = require("lspconfig")
+-- Modernized LSP Configuration for Neovim 0.11+
 require("user.lsp.mason")
 require("user.lsp.handlers").setup()
 
@@ -7,8 +7,8 @@ require("user.lsp.handlers").setup()
 local vue_ls_path = vim.fn.expand("$MASON/packages/vue-language-server")
 local vue_plugin_path = vue_ls_path .. "/node_modules/@vue/language-server"
 
--- Now configure ts_ls (TypeScript) to load the Vue plugin
-lspconfig.ts_ls.setup({
+-- Now configure ts_ls (TypeScript) to load the Vue plugin natively
+vim.lsp.config("ts_ls", {
   init_options = {
     plugins = {
       {
@@ -21,29 +21,37 @@ lspconfig.ts_ls.setup({
   filetypes = { "typescript", "javascript", "vue" },
 })
 
+-- Enable the server globally using the modern API
+vim.lsp.enable("ts_ls")
+
+-- Global keymaps execution upon LSP connection
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     desc = 'LSP keymaps',
     callback = function(event)
         local opts = { buffer = event.buf, noremap = true, silent = true }
-        vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-        vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-        vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-        vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-        vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-        vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-        vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-        vim.keymap.set("n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-        vim.keymap.set("n", "[g", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-        vim.keymap.set(
-            "n",
-            "gl",
-            '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>',
-            opts
-        )
-        vim.keymap.set("n", "]g", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-        vim.keymap.set("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-        vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.setqflist()<CR>", opts)
-        vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
+        
+        -- Utilizing modern, simplified Lua calling syntax instead of wrap-strings
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+        
+        -- Diagnostics mapping cleanups
+        vim.keymap.set("n", "<leader>f", vim.diagnostic.open_float, opts)
+        vim.keymap.set("n", "[g", function() vim.diagnostic.goto_prev({ border = "rounded" }) end, opts)
+        vim.keymap.set("n", "gl", function() vim.diagnostic.open_float({ border = "rounded" }) end, opts)
+        vim.keymap.set("n", "]g", function() vim.diagnostic.goto_next({ border = "rounded" }) end, opts)
+        vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
+        vim.keymap.set("n", "<leader>d", vim.diagnostic.setqflist, opts)
+        
+        -- Native formatting macro wrapper
+        vim.api.nvim_buf_create_user_command(event.buf, 'Format', function()
+            vim.lsp.buf.format({ async = true })
+        end, {})
     end,
 })
+
